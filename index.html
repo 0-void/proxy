@@ -30,6 +30,18 @@
     }
   </style>
   <body>
+    <script>
+      async function getData() {
+        try {
+          const response = await fetch("https://www.google.com");
+          if (!response.ok) throw response.statusText;
+          document.body = response;
+        } catch (err) {
+          document.body = "something went wrong";
+        }
+      }
+      getData();
+    </script>
     <h1>Make request to /api/proxy?url=</h1>
     <h2>
       A simple proxy, that can add cors header for the link that does not
